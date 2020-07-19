@@ -1,0 +1,61 @@
+.home-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  @media screen and (min-width: 769px) {
+    height: calc(100vh - 100px);
+    flex-direction: row;
+  }
+
+  @media screen and (max-width: 768px) {
+    height:unset;
+    flex-direction: column-reverse;
+    padding:20px;
+  }  
+
+  .role-title {
+    font-size: 18px;
+  }
+
+  .blinker {
+    animation: blinker 1s linear infinite;
+  }
+
+  @keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+  .home-image-part { 
+    @media screen and (min-width: 769px) {
+      margin-left:50px;
+    }
+  
+    @media screen and (max-width: 768px) {
+      margin-left:0px;
+    }  
+
+    @media screen and (max-width: 320px) {
+      height: 300px;
+      width: 300px;
+    }  
+
+    height: 350px;
+    width: 350px;
+    background-image: url("../../images/profile.jpg");
+    background-repeat: no-repeat;
+    object-fit: fill;
+    border-radius: 50%;
+    background-size: cover;    
+    background-position: top;
+    border: 3px solid lightgray;
+  }
+
+  .social-icons-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}

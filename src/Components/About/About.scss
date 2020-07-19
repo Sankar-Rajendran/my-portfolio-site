@@ -1,0 +1,40 @@
+.about-container {
+  min-height: calc(100vh - 100px);
+
+  .section-container {
+    @media screen and (max-width: 768px) {
+      padding: 10px 30px;
+    }
+    padding: 10px 70px;  
+    .section-body {
+      position: relative;
+      @media screen and (max-width: 768px) {
+        padding-left: 30px;
+      }
+      padding-left: 60px;
+      h4,
+      h5 {
+        margin: 0px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .dot-style-light {
+    color: #2a2135;
+    text-shadow: #2a2135 0 0 5px;
+  }
+
+  .dot-style-dark {
+    color: #fbf4ff;
+    text-shadow: #fbf4ff 0 0 5px;
+  }
+
+  .dot-style:before {
+    content: "•";
+    margin: 0 10px;
+    position: relative;
+    left: -30px;
+    top: 17px;
+  }
+}

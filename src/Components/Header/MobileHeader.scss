@@ -1,0 +1,78 @@
+.mobile-header {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  .hamburger-container {
+    width: 40px;
+
+    .hamburger-item {
+      height: 3px;
+      border-radius: 3px;
+      margin: 5px;
+    }
+  }
+}
+
+
+
+.sidebar-container {
+  @media screen and (min-width: 769px) {
+    display: none;
+  }
+
+  @media screen and (max-width: 768px) {
+    display: block;
+  }
+
+  z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  transition: 0.1s;
+
+  &.show {
+    width: 200px;
+    visibility: visible;
+  }
+
+  &.hide {
+    width: 0px;
+    visibility: hidden;
+  }
+
+  .side-bar-content {
+    padding: 20px;
+
+    .close-button {
+      font-size: 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    ul {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+
+      li {
+        padding: 5px;
+        cursor: pointer;
+      }
+
+      .selected {
+        font-size: 18px;
+      }
+    }
+  }
+}

@@ -6,6 +6,15 @@ import graduationCap from "@iconify/icons-fa/graduation-cap";
 import baselineWork from "@iconify/icons-ic/baseline-work";
 import desktopComputer from "@iconify/icons-emojione-monotone/desktop-computer";
 import notesIcon from "@iconify/icons-cil/notes";
+import javascriptIcon from "@iconify/icons-logos/javascript";
+import reactIcon from "@iconify/icons-logos/react";
+import nodejsIcon from "@iconify/icons-logos/nodejs-icon";
+import html5Icon from "@iconify/icons-cib/html5";
+import bootstrapIcon from "@iconify/icons-logos/bootstrap";
+import logoCss3 from "@iconify/icons-ion/logo-css3";
+import nodeSass from "@iconify/icons-logos/node-sass";
+import cSharp from "@iconify/icons-logos/c-sharp";
+import dotNet from "@iconify/icons-cib/dot-net";
 
 const About = () => {
   const { dark, theme } = React.useContext(ThemeContext);
@@ -61,50 +70,74 @@ const About = () => {
     </div>
   );
 
-  const ProgrammingSkills = () => (
-    <div className="section-container">
-      <h2 className="section-title">
-        <Icon icon={desktopComputer} />
-        <span style={{ paddingLeft: "5px" }}>Programming Skills</span>
-      </h2>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>Javascript</h4>
+  const ProgrammingSkills = () => {
+    const border = `2px solid ${theme.color}`;
+
+    return (
+      <div className="section-container">
+        <h2 className="section-title">
+          <Icon icon={desktopComputer} />
+          <span style={{ paddingLeft: "5px" }}>Programming Skills</span>
+        </h2>
+        <div className="section-body programming-skills-container">
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={javascriptIcon} />
+            </span>
+            <p>Javascript</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={reactIcon} />
+            </span>
+            <p>ReactJs</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={nodejsIcon} />
+            </span>
+            <p>NodeJs</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={html5Icon} />
+            </span>
+            <p>HTML5</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={bootstrapIcon} />
+            </span>
+            <p>Bootstrap</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={logoCss3} />
+            </span>
+            <p>CSS3</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={nodeSass} />
+            </span>
+            <p>SASS</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={cSharp} />
+            </span>
+            <p>C#</p>
+          </div>
+          <div style={{ border: border }} className="skill-box">
+            <span className="icon">
+              <Icon icon={dotNet} />
+            </span>
+            <p>ASP.NET, WPF</p>
+          </div>
+        </div>
       </div>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>React</h4>
-      </div>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>NodeJs</h4>
-      </div>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>Bootstrap</h4>
-      </div>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>CSS3 / LESS / SASS</h4>
-      </div>
-      <div className="section-body">
-        <span
-          className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
-        ></span>
-        <h4>C#, ASP.NET, Windows Service and WPF</h4>
-      </div>
-    </div>
-  );
+    );
+  };
 
   const Blogs = () => {
     const linkColor = theme.color;

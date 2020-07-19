@@ -39,11 +39,13 @@
     ]
   },
   "devDependencies": {
+    "@iconify/icons-cib": "^1.0.3",
     "@iconify/icons-cil": "^1.0.4",
     "@iconify/icons-emojione-monotone": "^1.0.7",
     "@iconify/icons-fa": "^1.0.3",
     "@iconify/icons-gg": "^1.0.0",
     "@iconify/icons-ic": "^1.0.13",
+    "@iconify/icons-ion": "^1.0.13",
     "@iconify/icons-logos": "^1.0.12",
     "@iconify/react": "^1.1.3"
   }

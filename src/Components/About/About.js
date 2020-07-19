@@ -1,13 +1,21 @@
 import React from "react";
 import { ThemeContext } from "../../Theme";
 import "./About.scss";
+import { Icon } from "@iconify/react";
+import graduationCap from "@iconify/icons-fa/graduation-cap";
+import baselineWork from "@iconify/icons-ic/baseline-work";
+import desktopComputer from "@iconify/icons-emojione-monotone/desktop-computer";
+import notesIcon from "@iconify/icons-cil/notes";
 
 const About = () => {
   const { dark, theme } = React.useContext(ThemeContext);
 
   const Education = () => (
     <div className="section-container">
-      <h2 className="section-title">Education</h2>
+      <h2 className="section-title">
+        <Icon icon={graduationCap} />
+        <span style={{ paddingLeft: "5px" }}>Education</span>
+      </h2>
       <div className="section-body">
         <span
           className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
@@ -22,7 +30,10 @@ const About = () => {
 
   const Experience = () => (
     <div className="section-container">
-      <h2 className="section-title">Experience</h2>
+      <h2 className="section-title">
+        <Icon icon={baselineWork} />
+        <span style={{ paddingLeft: "5px" }}>Experience</span>
+      </h2>
       <div className="section-body">
         <span
           className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
@@ -52,7 +63,10 @@ const About = () => {
 
   const ProgrammingSkills = () => (
     <div className="section-container">
-      <h2 className="section-title">Programming Skills</h2>
+      <h2 className="section-title">
+        <Icon icon={desktopComputer} />
+        <span style={{ paddingLeft: "5px" }}>Programming Skills</span>
+      </h2>
       <div className="section-body">
         <span
           className={`dot-style ${dark ? "dot-style-dark" : "dot-style-light"}`}
@@ -96,7 +110,10 @@ const About = () => {
     const linkColor = theme.color;
     return (
       <div className="section-container">
-        <h2 className="section-title">Blogs</h2>
+        <h2 className="section-title">
+          <Icon icon={notesIcon} />
+          <span style={{ paddingLeft: "5px" }}>Blogs</span>
+        </h2>
         <div className="section-body">
           <span
             className={`dot-style ${

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { ThemeContext } from "../../Theme";
 import "./About.scss";
 import { Icon } from "@iconify/react";
@@ -140,76 +140,49 @@ const About = () => {
   };
 
   const Blogs = () => {
-    const linkColor = theme.color;
+    const [postsList, setPostsList] = useState([]);
+
+    useEffect(() => {
+      fetchPosts();
+    }, []);
+
+    const fetchPosts = () => {
+      fetch(
+        "https://api.rss2json.com/v1/api.json?rss_url=https%3A%2F%2Fmedium.com%2Ffeed%2F%40mailtosankar08"
+      )
+        .then((response) => response.json())
+        .then((data) => {
+          setPostsList(data.items);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    };
+    const linkColor = theme.backgroundColor;
     return (
       <div className="section-container">
         <h2 className="section-title">
           <Icon icon={notesIcon} />
           <span style={{ paddingLeft: "5px" }}>Blogs</span>
         </h2>
-        <div className="section-body">
-          <span
-            className={`dot-style ${
-              dark ? "dot-style-dark" : "dot-style-light"
-            }`}
-          ></span>
-          <a
-            style={{ color: linkColor }}
-            target="_blank"
-            href="https://medium.com/@mailtosankar08/react-apollo-react-local-data-management-using-apollo-link-state-and-apollo-link-5c4b98c6098c"
-          >
-            <h4>
-              React-apollo : React local data management using Apollo-link-state
-              and Apollo-link
-            </h4>
-          </a>
-        </div>
-        <div className="section-body">
-          <span
-            className={`dot-style ${
-              dark ? "dot-style-dark" : "dot-style-light"
-            }`}
-          ></span>
-          <a
-            style={{ color: linkColor }}
-            target="_blank"
-            href="https://medium.com/@mailtosankar08/react-vs-react-redux-vs-react-graphql-perspective-from-front-end-development-f1ec3483340f"
-          >
-            <h4>
-              React vs React + Redux vs React+GraphQL : Perspective from Front
-              end Development
-            </h4>
-          </a>
-        </div>
-        <div className="section-body">
-          <span
-            className={`dot-style ${
-              dark ? "dot-style-dark" : "dot-style-light"
-            }`}
-          ></span>
-          <a
-            target="_blank"
-            style={{ color: linkColor }}
-            href="https://medium.com/@mailtosankar08/graphql-and-graphiql-aee1c689204b"
-          >
-            <h4>GraphQL and Graphiql</h4>
-          </a>
-        </div>
-        <div className="section-body">
-          <span
-            target="_blank"
-            className={`dot-style ${
-              dark ? "dot-style-dark" : "dot-style-light"
-            }`}
-          ></span>
-          <a
-            style={{ color: linkColor }}
-            href="https://medium.com/@mailtosankar08/basic-crud-operations-using-apollo-graphql-server-insomnia-89f98212c5f8"
-          >
-            <h4>
-              Basic CRUD operations using apollo-graphql server + Insomnia
-            </h4>
-          </a>
+        <div className="section-body blog-posts-list">
+          {postsList.map((post, index) => (
+            <div
+              style={{
+                backgroundColor: theme.color
+              }}
+              index={index}
+              className="blog-post-card"
+            >
+              <a style={{ color: linkColor }} href={post.link}>
+                <div
+                  className="thumbnail-image"
+                  style={{ backgroundImage: `URL(${post.thumbnail})` }}
+                ></div>
+                <div className="blog-title">{post.title}</div>
+              </a>
+            </div>
+          ))}
         </div>
       </div>
     );

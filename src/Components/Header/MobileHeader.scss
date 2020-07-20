@@ -1,18 +1,20 @@
-.mobile-header {
-  position: absolute;
-  top: 5px;
-  left: 5px;
+.mobile-header { 
 
   @media screen and (min-width: 769px) {
     display: none;
   }
 
   @media screen and (max-width: 768px) {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
+
+  
 
   .hamburger-container {
     width: 40px;
+    padding:10px;
 
     .hamburger-item {
       height: 3px;
@@ -33,12 +35,11 @@
     display: block;
   }
 
-  z-index: 1;
-  position: absolute;
-  top: 0;
-  left: 0;
+  z-index: 1; 
   height: 100%;
   transition: 0.1s;
+  position: fixed;
+  top:0px;
 
   &.show {
     width: 200px;

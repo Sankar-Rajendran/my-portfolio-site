@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { HashLink as Link } from "react-router-hash-link";
+import { ThemeToggle } from "../Utilities";
 import "./MobileHeader.scss";
 
 const MobileHeader = (props) => {
@@ -26,6 +27,9 @@ const MobileHeader = (props) => {
             className="hamburger-item"
           ></div>
         </div>
+        <div style={{ padding: "10px" }}>
+          <ThemeToggle dark={props.dark} toggleTheme={props.toggle} />
+        </div>
       </div>
       <SidebarMenu
         theme={props.theme}
@@ -41,22 +45,22 @@ export default MobileHeader;
 const SidebarMenu = ({ isSideMenuOpen, toggleMenu, theme }) => {
   return (
     <div
-      style={{ color: theme.color, backgroundColor: theme.backgroundColor }}
+      style={{ color: theme.backgroundColor, backgroundColor: theme.color }}
       onClick={toggleMenu}
       className={`sidebar-container ${isSideMenuOpen ? " show" : "hide"}`}
     >
       <div className="side-bar-content">
-        <span style={{ color: theme.color }} className="close-button">
+        <span style={{ color: theme.backgroundColor }} className="close-button">
           X
         </span>
         <ul>
-          <Link style={{ color: theme.color }} to={{ pathname: "/" }}>
+          <Link style={{ color: theme.backgroundColor }} to={{ pathname: "/" }}>
             <li>
               <h3>Home</h3>
             </li>
           </Link>
           <Link
-            style={{ color: theme.color }}
+            style={{ color: theme.backgroundColor }}
             to={{ pathname: "/", hash: "#about" }}
           >
             <li>
@@ -64,7 +68,7 @@ const SidebarMenu = ({ isSideMenuOpen, toggleMenu, theme }) => {
             </li>
           </Link>
           <Link
-            style={{ color: theme.color }}
+            style={{ color: theme.backgroundColor }}
             to={{ pathname: "/", hash: "#contact" }}
           >
             <li>
